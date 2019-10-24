@@ -1,0 +1,15 @@
+header{
+    text-align: center;
+}
+#search-bar{
+    float: left;
+    background-color: lightgrey;
+    height: 200px;
+}
+.bg-primary{
+    width: 100px;
+    height: 100px;
+}
+button{
+    background-color:red;
+}

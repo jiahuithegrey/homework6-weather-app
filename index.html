@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="img/weather.png"/>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Jiahui Weather App</title>
+  </head>
+
+  <body>
+    <header class="jumbotron jumbotron-fluid text-light bg-dark">
+      <h1 class="display-4">Weather Dashboard</h1> 
+      <!-- what does "display-4" mean? -->
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-4" id="search-bar">
+          <h3>Search for a City:</h3><br>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+          </form>
+          <div class="search-history"></div>
+        </div>
+
+        <div class="col-xs-12 col-md-8">
+          <div class="card">
+            <h2 class="card-title">Seattle</h2>
+            <p class="card-text" id="temperature">Temperature:</p>
+            <p class="card-text" id ="humidity">Humidity:</p>
+            <p class="card-text" id ="wind-speed">Wind Speed:</p>
+            <p class="card-text" id ="uv-index">UV Index:</p>
+          </div>
+          <p><h3>5-Day Forecast:</h3></p>
+          <div class="container px-5 py-5"> 
+            <div class="row"> 
+                <div class="card bg-primary mx-1"></div> 
+                <div class="card bg-primary mx-1"></div> 
+                <div class="card bg-primary mx-1"></div> 
+                <div class="card bg-primary mx-1"></div> 
+                <div class="card bg-primary mx-1"></div> 
+            </div> 
+          </div> 
+        </div>
+      </div>
+    </div>
+  
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
