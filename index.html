@@ -21,13 +21,17 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-4" id="search-bar">
-          <form class="form-inline my-2 my-lg-0">
+          <form id="citySearch" class="form-inline my-2 my-lg-0">
             <label for="city-input">Search for a City:</label>
             <input class="city" type="search" placeholder="Search">
             <button type="submit"><i class="fa fa-search"></i></button>
             <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
           </form>
-          <div class="search-history"></div>
+          <table >
+            <tr>
+              <td class="search-history"></td>
+            </tr>
+          </table>
         </div>
 
         <div class="col-xs-12 col-md-8">
