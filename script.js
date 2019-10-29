@@ -30,13 +30,13 @@ function getUVIndex(lat,lon){
         url: QueryURL,
         method: "GET"
     }).then(function(response) {
-        //console.log(response);
+        console.log(response);
         updateUVIndex(response);
     });
 }
 
 function updateUVIndex(response) {
-    $("#uv-index").text(response.value); 
+    $("#uv-index").text("UV Index: " + response.value); 
 }
 
 // function renderButtons() {
