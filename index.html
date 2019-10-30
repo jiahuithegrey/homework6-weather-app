@@ -27,16 +27,12 @@
             <input id="find-city" type="submit" value = "Search">
             <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
           </form>
-          <table >
-            <tr>
-              <td class="search-history"></td>
-            </tr>
-          </table>
+          <div class="search-history"></div> 
         </div>
 
         <div class="col-xs-12 col-md-8">
           <div class="card">
-            <h2 class="city"></h2>
+            <h2><span id="city-name"></span>&nbsp(<span id="current-date"></span>)</h2>
             <p class="card-text" id="high-temperature">Highest Temperature:</p>
             <p class="card-text" id="low-temperature">Lowest Temperature:</p>
             <p class="card-text" id ="humidity">Humidity:</p>
@@ -44,13 +40,18 @@
             <p class="card-text" id ="uv-index">UV Index:</p>
           </div>
           <p><h3>5-Day Forecast:</h3></p>
-          <div class="container px-5 py-5"> 
-            <div class="row"> 
-                <div class="card bg-primary mx-1"></div> 
-                <div class="card bg-primary mx-1"></div> 
-                <div class="card bg-primary mx-1"></div> 
-                <div class="card bg-primary mx-1"></div> 
-                <div class="card bg-primary mx-1"></div> 
+          <div class="container"> 
+            <div id="future-cards" class="row"> 
+                <div class="card bg-primary mx-1 future">
+                  <div><span id="future-date"></span></div>
+                  <div id="main-weather"></div>
+                  <div>temp:<span id="temp"></span></div>
+                  <div>Humidity:<span id="humid"></span></div>
+                </div> 
+                <div class="card bg-primary mx-1 future"></div> 
+                <div class="card bg-primary mx-1 future"></div> 
+                <div class="card bg-primary mx-1 future"></div> 
+                <div class="card bg-primary mx-1 future"></div> 
             </div> 
           </div> 
         </div>
@@ -60,6 +61,7 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

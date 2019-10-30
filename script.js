@@ -1,5 +1,18 @@
-// var searchBtn = $(".fa-search");
 var APIKey = "04a910d3dcce5f3a689d56a30faedf19"; 
+
+$("#find-city").on("click", function(event) {
+    event.preventDefault();
+    var cityEl = $(".city").val().trim(); 
+    //otherwise var will be the whole input
+    getCityWeather(cityEl);
+
+    $("#city-name").text(cityEl);
+    var now = moment().format("l");
+    $("#current-date").text(now);
+
+    getFutureWeather();
+    renderButtons();
+});
 
 function getCityWeather(city){
     var queryURL =
@@ -21,6 +34,9 @@ function updateCityWeather(response) {
     $("#low-temperature").text("Lowest Temperature: " + response.main.temp_min);
     $("#humidity").text("Humidity: " + response.main.humidity);
     $("#wind-speed").text("Wind Speed: " + response.wind.speed);
+    //add icon
+    // var icon = $("<img>");
+    // var weatherIcon = response.weather[0].main;
 }
     
 function getUVIndex(lat,lon){
@@ -30,7 +46,6 @@ function getUVIndex(lat,lon){
         url: QueryURL,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
         updateUVIndex(response);
     });
 }
@@ -38,20 +53,49 @@ function getUVIndex(lat,lon){
 function updateUVIndex(response) {
     $("#uv-index").text("UV Index: " + response.value); 
 }
+//not working now
+function renderButtons() {
+    var searchHistory = [];
+    for (var i=0; i<searchHistory.length; i++){
+        var cityBtn = $("<button>");
+        cityBtn.addClass("search-history");
+        cityBtn.attr("data-letter", searchHistory[i]);
+        cityBtn.text(searchHistory[i]);
+        $("<button>").prepend(cityBtn);
+        $(".search-history").append(cityBtn);
+    }
+}
 
-// function renderButtons() {
+function getFutureWeather(){
+    for (var j=0; j<5 ;j++){
+        var date = moment().add(1,"days").format("M/D/YYYY");
 
-// }
-$("#find-city").on("click", function(event) {
-    event.preventDefault();
-    var cityEl = $(".city").val().trim(); //otherwise var will be the whole input
-    getCityWeather(cityEl);
-});
+        var futureWeather = $("<div class='future-weather'>");
+        var futureDate = $("<h3>");
+        futureDate.html(date);
+        var futureTemp = $("<span>");
+        futureTemp.text("Temp: " + response.list[j].main.temp+"<br>");
+        var futureHumidity = $("<span>");
+        futureHumidity.text("Humidity: " + response.list[j].main.humidity+"<br>");
 
-//     var searchHistory = $(".search-history");
-//     searchHistory = cityEl.value;
-// });
+        futureWeather.append(futureDate, futureTemp, futureHumidity);
+        $("#future-cards").append(futureWeather);
 
-// searchBtn.on("click", function(event) { //how to make enter work too?
-//     $("#citySearch").submit();
-// });
+
+
+        var QueryURL =
+        "http://api.openweathermap.org/data/2.5/uvi?appid="+APIKey+"&lat="+lat+"&lon="+lon;
+        $.ajax({
+            url: QueryURL,
+            method: "GET"
+        }).then(function(response) {
+            updateUVIndex(response);
+        });
+
+        
+
+
+    }
+}
+
+

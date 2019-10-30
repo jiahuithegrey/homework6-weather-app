@@ -6,10 +6,14 @@ header{
     background-color: lightgrey;
     height: 200px;
 }
-.bg-primary{
-    width: 100px;
-    height: 100px;
+.future{
+    width: 135px;
+    height: 135px;
 }
-.fa-search{
-    background-color:green;
+/* #uv-index{
+    background-color: red;
+    border-radius: 5px;
+} */
+#future-cards{
+    color: white;
 }
