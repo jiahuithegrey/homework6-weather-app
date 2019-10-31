@@ -6,14 +6,17 @@ header{
     background-color: lightgrey;
     height: 200px;
 }
-.future{
+.five-box{
+    color: white;
     width: 135px;
     height: 135px;
+    border-radius: 15px;
+    background-color: #007BFF;
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px;
 }
 /* #uv-index{
     background-color: red;
     border-radius: 5px;
 } */
-#future-cards{
-    color: white;
-}
