@@ -16,7 +16,7 @@ $("#find-city").on("click", function(event) {
 
 function getCityWeather(city){
     var queryURL =
-    "http://api.openweathermap.org/data/2.5/weather?"+"q="+city+ 
+    "https://api.openweathermap.org/data/2.5/weather?"+"q="+city+ 
     "&units=imperial&appid="+APIKey;
     $.ajax({
         url: queryURL,
@@ -41,7 +41,7 @@ function updateCityWeather(response) {
     
 function getUVIndex(lat,lon){
     var QueryURL =
-    "http://api.openweathermap.org/data/2.5/uvi?appid="+APIKey+"&lat="+lat+"&lon="+lon;
+    "https://api.openweathermap.org/data/2.5/uvi?appid="+APIKey+"&lat="+lat+"&lon="+lon;
     $.ajax({
         url: QueryURL,
         method: "GET"
@@ -84,7 +84,7 @@ function getFutureWeather(){
 
 
         var QueryURL =
-        "http://api.openweathermap.org/data/2.5/uvi?appid="+APIKey+"&lat="+lat+"&lon="+lon;
+        "https://api.openweathermap.org/data/2.5/uvi?appid="+APIKey+"&lat="+lat+"&lon="+lon;
         $.ajax({
             url: QueryURL,
             method: "GET"
