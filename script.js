@@ -9,7 +9,7 @@ $("#find-city").on("click", function(event) {
     var now = moment().format("l");
     $("#city-name").text(cityEl+"("+now+")");
     renderButton();
-    saveHistory(city);
+    saveHistory(cityEl);
 });
 
 function getCityWeather(city){
