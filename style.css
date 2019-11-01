@@ -3,7 +3,6 @@ header{
 }
 #search-bar{
     float: left;
-    background-color: lightgrey;
     height: 200px;
 }
 .five-box{
@@ -15,6 +14,17 @@ header{
     display: inline-block;
     margin-right: 10px;
     padding: 10px;
+}
+ul.button-list{
+    list-style-type: none;
+    margin-top: 20px;
+    padding-left: 0;
+}
+.city-button{
+    width: 350px;
+}
+ul.button-list .city-button:not(:last-child) {
+    border-bottom: none;
 }
 /* #uv-index{
     background-color: red;

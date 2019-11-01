@@ -8,7 +8,8 @@ $("#find-city").on("click", function(event) {
 
     var now = moment().format("l");
     $("#city-name").text(cityEl+"("+now+")");
-    //renderButtons();
+    renderButton();
+    saveHistory(city);
 });
 
 function getCityWeather(city){
@@ -69,16 +70,43 @@ function updateFutureWeather(response){
         $(".five-day-container").append(futureWeather);
     }
 }
-//not working now
-function renderButtons() {
-    var searchHistory = [];
-    for (var i=0; i<searchHistory.length; i++){
-        var cityBtn = $("<button>");
-        cityBtn.addClass("search-history");
-        cityBtn.attr("data-letter", searchHistory[i]);
-        cityBtn.text(searchHistory[i]);
-        $("<button>").prepend(cityBtn);
-        $(".search-history").append(cityBtn);
+
+function saveHistory(city){
+    if (localStorage.getItem("searchHistory")) {
+        var history = JSON.parse(localStorage.getItem("searchHistory")); 
+        history.push(city);
+        localStorage.setItem("searchHistory", JSON.stringify(history));
+    } else {
+        localStorage.setItem("searchHistory", JSON.stringify([city]));
+    }   
+    renderButton();
+}
+
+function renderButton(){
+    if (localStorage.getItem("searchHistory")) {
+        var cityList = JSON.parse(localStorage.getItem("searchHistory"));
+        for (var i = 0; i < cityList.length; i++) {
+            var listEl = $("<li>");
+            var cityButton = $("<button>").text(cityList[i]); 
+            cityButton.addClass("city-button");             
+            listEl.append(cityButton);
+            $(".button-list").append(listEl);
+        }
     }
 }
+
+
+
+
+// function renderButtons() {
+//     var searchHistory = [];
+//     for (var i=0; i<searchHistory.length; i++){
+//         var cityBtn = $("<button>");
+//         cityBtn.addClass("search-history");
+//         cityBtn.attr("data-letter", searchHistory[i]);
+//         cityBtn.text(searchHistory[i]);
+//         $("<button>").prepend(cityBtn);
+//         $(".search-history").append(cityBtn);
+//     }
+// }
 
